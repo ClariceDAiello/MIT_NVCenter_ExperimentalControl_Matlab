@@ -1,0 +1,36 @@
+classdef ExperimentalScan < handle
+
+% Class stores experiment results after doing experiment 
+    
+    properties
+       ExperimentData      % Averaged matrix data of the image, cell with different indeices for different acquisitions rises
+       
+       vary_begin
+       vary_end
+       
+	   vary_step_size
+       
+       OriginalPSeq
+       Repetitions
+       Averages
+       ExperimentDataError
+       
+       DateTime       % Time stamp when data was acquired
+       Notes          % Notes field
+       
+    end
+    
+    methods
+        % ConfocalImage Constructor
+        function [obj] = ExperimentalScan()
+            
+            % set DateTime at construction
+            obj.DateTime = now();
+        end
+    end
+    
+    events
+        ExpStateChange      % when data is ready, change scan state
+    end
+    
+end
